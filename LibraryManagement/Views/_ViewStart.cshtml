@@ -1,0 +1,14 @@
+﻿@{
+    if (this.User.IsInRole("Staff,Admin") || this.User.Identity.IsAuthenticated)
+    {
+        Layout = "_LayoutStaff";
+    }
+    else if(this.User.IsInRole("Member") || this.User.Identity.IsAuthenticated)
+    {
+        Layout = "_LayoutMember";
+    }
+    else
+    {
+        Layout = "_Layout";
+    }
+}
